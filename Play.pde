@@ -7,6 +7,8 @@ class Play {
   Selector selectNumber; 
   ChangeNumber numberUp;
   ChangeNumber numberDown;
+  GameMode previousType;
+  PreviousModeButton previousModeButton;
   //ToggleNumberGrid togglenumbergrid;
   Board board1; 
   Board board2;
@@ -14,13 +16,10 @@ class Play {
   Cell[] cells2 = new Cell[81];
   int autosavetimer;
   char[] letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
-  //String currentSelection = "none";
   CellType currentSelection = CellType.NONE;
   boolean numbergrid;
   PImage minepng;
   int currentnumber;
-  GameMode previousType;
-  PreviousModeButton previousModeButton;
 
   Play() {
     init();
@@ -32,8 +31,8 @@ class Play {
     minepng = loadImage("mine.png");
     selectMine = new Selector(w*5/16, h*48/50, cellsize, minepng);
     selectBoat = new Selector(w/3, h/10, 1, false);
-    selectHit = new Selector(w/16, h*48/50, color(255, 0, 0),CellType.HIT);
-    selectMiss = new Selector(w*3/16, h*48/50, color(255),CellType.MISS);
+    selectHit = new Selector(w/16, h*48/50, color(255, 0, 0), CellType.HIT);
+    selectMiss = new Selector(w*3/16, h*48/50, color(255), CellType.MISS);
     selectNumber = new Selector(w*7/16, h*48/50, backgroundcolor, 0);
     numberUp = new ChangeNumber(w*9/16, h*48/50, true);
     numberDown = new ChangeNumber(w*11/16, h*48/50, false);
@@ -54,7 +53,7 @@ class Play {
       selectNumber.increment(numberUp.overlap(currentnumber));
       selectNumber.increment(numberDown.overlap(currentnumber));
       previousModeButton.activate(previousType);
-      
+
 
       if (selectHit.overlaps()) setCurrentSelection(selectHit, CellType.HIT);
       else if (selectMiss.overlaps()) setCurrentSelection(selectMiss, CellType.MISS);
@@ -67,7 +66,7 @@ class Play {
       }
     }
   }
-  
+
   void setCurrentSelection(Selector s, CellType ct) {
     deselectAll();
     s.select();

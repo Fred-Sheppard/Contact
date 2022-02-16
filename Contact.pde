@@ -1,6 +1,4 @@
-boolean isJava = true; //<>//
-
-Menu menu;
+Menu menu; //<>//
 Play play;
 Place place;
 
@@ -57,13 +55,6 @@ void draw() {
 }
 
 void mousePressed() {
-  //if (mouseX < 30 && mouseY < 30) {
-  //  menu = new Menu();
-  // gamemode = GameMode.MENU;
-  // //gamemode = "menu";
-  // place = null;
-  // play = null;
-  //}
   mousedown = true;
   displayAll();
 }
