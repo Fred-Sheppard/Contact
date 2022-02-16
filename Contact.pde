@@ -1,4 +1,6 @@
-Menu menu; //<>//
+//This comment will be deleted //<>//
+
+Menu menu;
 Play play;
 Place place;
 
