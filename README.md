@@ -1,0 +1,2 @@
+# Contact
+Battleship meets Minesweeper
