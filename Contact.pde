@@ -1,4 +1,7 @@
-Menu menu; //<>//
+boolean isJava = true; //<>//
+int displayDensity = 1;
+
+Menu menu;
 Play play;
 Place place;
 
@@ -18,40 +21,34 @@ enum CellType {
 GameMode gamemode;
 //String gamemode = "menu";
 
+void settings() {
+  if (isJava) {
+    size(360, 733);
+  } else {
+    size(displayWidth, displayHeight);
+  }
+}
+
 void setup() {
-  //Java
-  size(360, 733);
-  //noSmooth();
-  dd = 0.875;
-  strokeWeight(1);
-
-  //Android
-  //size(displayWidth, displayHeight);
-  ////dd = displayDensity;
-  //strokeWeight(2);
-
+  dd = displayDensity;
+  strokeWeight(2 -int(isJava));
   orientation(PORTRAIT);
   frameRate(10);
-  w = width; 
+  w = width;
   h = height;
   boardsize = height*9/24;
   cellsize = boardsize/10;
-  textAlign(CENTER, CENTER); 
+  textAlign(CENTER, CENTER);
   textSize(30*dd);
-  strokeWeight(2);
   imageMode(CENTER);
   boardsize = h*9/24;
   cellsize = boardsize/10;
   menu = new Menu();
-
   gamemode = GameMode.MENU;
 }
 
 void draw() {
   displayAll();
-  //fill(255,0,0);
-  //rectMode(CENTER);
-  //rect(15, 15, 30, 30);
 }
 
 void mousePressed() {

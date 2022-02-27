@@ -178,12 +178,13 @@ class Play {
 
   void grid() {
     if (numbergrid) {
+      CellType none = CellType.NONE;
       //Normal Grid
       for (int i = 0; i < cells2.length; i++) {
         for (int y = 9; y > -10; y -= 9) {
           for (int x = i-y-1; x < i-y+2; x++) {
             try {
-              if (!cells2[x].cellType.equals("none")) {
+              if (cells2[x].cellType == none) {
                 cells2[i].neighbours++;
               }
             }
@@ -199,7 +200,7 @@ class Play {
             for (int y = 9; y > -10; y -= 9) {
               for (int x = i-y; x < i-y+2; x++) {
                 try {
-                  if (!cells2[x].cellType.equals("none")) {
+                  if (cells2[x].cellType == none) {
                     cells2[i].neighbours++;
                   }
                 } 
@@ -213,7 +214,7 @@ class Play {
             for (int y = 9; y > -10; y -= 9) {
               for (int x = i-y-1; x < i-y+1; x++) {
                 try {
-                  if (!cells2[x].cellType.equals("none")) {
+                  if (cells2[x].cellType == none) {
                     cells2[i].neighbours++;
                   }
                 } 
