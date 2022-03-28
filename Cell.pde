@@ -16,6 +16,8 @@ class Cell {
     this.y = y;
     this.board = board;
     this.img = img;
+    int size = int(this.size);
+    minepng.resize(size, size);
     cellType = CellType.NONE;
   }
 

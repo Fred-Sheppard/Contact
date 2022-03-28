@@ -1,5 +1,5 @@
-boolean isJava = true; //<>//
-int displayDensity = 1;
+boolean isJava = false;
+//int displayDensity = 1;
 
 Menu menu;
 Play play;
